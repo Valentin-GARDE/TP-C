@@ -12,7 +12,7 @@
     nb = rand() % 100;
     printf("Nombre à deviner : %d\n", nb);
     
-    while(1)
+    while(1) /*mettre for(int i=0;i<10;i++)*/
     {
         printf("Veuillez entrer un nombre entre 0 et 99 : ");
         scanf("%d", &x);
