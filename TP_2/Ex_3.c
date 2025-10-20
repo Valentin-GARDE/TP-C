@@ -11,7 +11,7 @@
     int recursive = 1;
 
     RemplirTab(tab);
-    while (recursive != 0)
+    while (recursive != 0)/*mettre un autre for pour eviter la boucle infinie*/
     {
         for(int i=0; i<10; i++)
         {

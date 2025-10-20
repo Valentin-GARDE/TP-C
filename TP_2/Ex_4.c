@@ -6,18 +6,21 @@
  {
     int tab[10] = {};
     int tmp = 0;
+    int zero;
 
     RemplirTab(tab);
     AfficherTab(tab);
-    while (tmp == 0)
-        for(int i=0; i<10; i++)
+    for(int j=0; j<10; j++)
+    {
+        for(int i=0; i<9; i++)
         {
             if (tab[i] == 0)
             {
                 tab[i]=tab[i+1];
-                tmp = 1;
+                tab[i+1]=0;
             }
         }
+    }
     AfficherTab(tab);
  }
 
