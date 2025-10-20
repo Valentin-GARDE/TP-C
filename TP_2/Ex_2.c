@@ -9,9 +9,9 @@ int main()
     int j = 9;
     int tmp;
 
-    for(int i=0; i<10; i++)
+    for(int i=0; i<5; i++)
     {
-        tab[i]=tmp;
+        tmp=tab[i];
         tab[i]= tab[j];
         tab[j]=tmp;
         j--;
