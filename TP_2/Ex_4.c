@@ -9,13 +9,15 @@
 
     RemplirTab(tab);
     AfficherTab(tab);
-    for(int i=0; i<10; i++)
-    {
-        if (tab[i] == 0)
+    while (tmp == 0)
+        for(int i=0; i<10; i++)
         {
-            tab[i]=tab[i+1];
+            if (tab[i] == 0)
+            {
+                tab[i]=tab[i+1];
+                tmp = 1;
+            }
         }
-    }
     AfficherTab(tab);
  }
 
@@ -37,5 +39,6 @@
     {
          printf("%d ", tab[i]);
     }
+    printf("\n");
     return 0;
  }
