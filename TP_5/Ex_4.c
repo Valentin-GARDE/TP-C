@@ -40,4 +40,5 @@ int main()
             printf("Nom: %s, Prenom: %s, Note: %d\n", etudiants[i].nom, etudiants[i].prenom, etudiants[i].note);
         }
     }
+    free(etudiants);
 }
