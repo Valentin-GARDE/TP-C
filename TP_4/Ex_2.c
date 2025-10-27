@@ -14,7 +14,7 @@ int main()
     tab = (double *)malloc(n * sizeof(double));
     if (tab == NULL)
     {
-        printf("Memory allocation failed\n");
+        printf("Allocation de mémoire non exécuté\n");
         return 1;
     }
     remplirTab(tab, n);
