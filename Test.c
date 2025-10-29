@@ -141,4 +141,3 @@ void comparerMots(char *mot, char *motcherche)
         exit(0); // Terminer le programme si le mot est trouvé test
     }
 }
-
