@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 char saisirMot(void);
 char saisirLettre(void);
@@ -11,6 +12,8 @@ int presenceLettre(char a, char b);
 void afficherMotCherché(char *motcherche);
 int tailleMot(char *mot);
 void comparerMots(char *mot, char *motcherche);
+char convertirMinuscule(char lettre);
+char convertMinusculeMot(char *mot);
 
 int main() 
 {
@@ -24,6 +27,8 @@ int main()
     printf("Joueur 1, à vous de jouer !\n");
     printf("Saisir un mot : ");
     scanf("%99s", mot);
+    convertMinusculeMot(mot);
+    system("clear"); // Effacer l'écran pour cacher le mot saisi
     int taille = tailleMot(mot);
 
     printf("joueur 2, à vous de jouer !\n");
@@ -38,9 +43,9 @@ int main()
     {
         printf("Voici les lettres déjà erronées : ");
         afficherErreur(erreur);
-        lettre = saisirLettre();
+        lettre = convertirMinuscule(saisirLettre());
 
-        if(parcourirMot(mot, lettre, motcherche)) 
+        if(parcourirMot(mot, lettre, motcherche))
         {
             printf("Bravo ! La lettre %c est dans le mot.\n", lettre);
             afficherMotCherché(motcherche);
@@ -53,6 +58,7 @@ int main()
             stockerErreur(erreur, lettre);
             printf("Vous avez fait %d erreurs sur 7.\n", e + 1);
         }
+        system("clear"); // Effacer l'écran pour la prochaine tentative
     }
     return 0;
 }
@@ -140,4 +146,22 @@ void comparerMots(char *mot, char *motcherche)
         printf("Félicitations ! Vous avez trouvé le mot : %s\n", mot);
         exit(0); // Terminer le programme si le mot est trouvé test
     }
+}
+
+char convertirMinuscule(char lettre) 
+{
+    if (lettre >= 'A' && lettre <= 'Z') 
+    {
+        return tolower(lettre);
+    }
+    return lettre; // Retourner la lettre telle quelle si elle est déjà en minuscule
+}
+
+char convertMinusculeMot(char *mot) 
+{
+    for (int i = 0; mot[i] != '\0'; i++) 
+    {
+        mot[i] = convertirMinuscule(mot[i]);
+    }
+    return *mot;
 }
